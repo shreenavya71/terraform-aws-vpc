@@ -37,7 +37,7 @@ resource "aws_subnet" "public" {      # first name is public[0], second name is 
         var.common_tags,
         var.public_subnet_cidr_tags,
         {
-            Name = "${local.resource_name}-${local.az_names[count.index]}"
+            Name = "${local.resource_name}-public-${local.az_names[count.index]}"
         } 
     )
 }
@@ -52,7 +52,7 @@ resource "aws_subnet" "private" {                    # first name is private[0],
         var.common_tags,
         var.private_subnet_cidr_tags,
         {
-            Name = "${local.resource_name}-${local.az_names[count.index]}"
+            Name = "${local.resource_name}-private-${local.az_names[count.index]}"
         } 
     )
 }
@@ -68,7 +68,7 @@ resource "aws_subnet" "database" {
         var.common_tags,
         var.database_subnet_cidr_tags,
         {
-            Name = "${local.resource_name}-${local.az_names[count.index]}"
+            Name = "${local.resource_name}-database-${local.az_names[count.index]}"
         } 
     )
 }
